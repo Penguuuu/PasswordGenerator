@@ -2,7 +2,7 @@
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "0123456789";
-var symbols = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+var specials = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
 
 // Function to generate password
 function generatePassword() {
@@ -10,20 +10,20 @@ function generatePassword() {
   var allowed = "";
 
   // Password length priompt 
-  var length = prompt("Enter the length of the password (between 8 and 128 characters):");
+  var length = prompt("Enter password length (between 8 and 128 characters):");
   if (length < 8 || length > 128) {
     alert("Invalid attempt. Please enter length 12 or more.");
     return "";
   }
 
   // Prompt user for password criteria
-  var useLowercase = confirm("Include lowercase characters?");
-  var useUppercase = confirm("Include uppercase characters?");
+  var useLowercase = confirm("Do you want to include lowercase letters?");
+  var useUppercase = confirm("Do you want to include uppercase letters?");
   var useNumbers = confirm("Include numbers?");
-  var useSymbols = confirm("Include symbols?");
+  var useSpecials = confirm("Include special characters?");
 
   // will prompt a message if no character type is selected
-  if (!useLowercase && !useUppercase && !useNumbers && !useSymbols) {
+  if (!useLowercase && !useUppercase && !useNumbers && !useSpecials) {
     alert("Must select one or more character types");
     return "";
   }
@@ -32,7 +32,7 @@ function generatePassword() {
   if (useLowercase) { allowed += lowercase; }
   if (useUppercase) { allowed += uppercase; }
   if (useNumbers) { allowed += numbers; }
-  if (useSymbols) { allowed += symbols; }
+  if (useSpecials) { allowed += specials; }
 
   for (var i = 0; i < length; i++) {
     password += allowed.charAt(Math.floor(Math.random() * allowed.length));
@@ -51,5 +51,5 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// Add event listener to generate button
+// allows Create Password button to function
 generateBtn.addEventListener("click", writePassword);
