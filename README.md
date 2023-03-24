@@ -1,9 +1,10 @@
-# PasswordGenerator# PasswordGenerator
+# PasswordGenerator 
 
 ## Description
 - Random password generator
 - 4 possible combinations of characters
 - Uppercase, lowercase, numbers, and special characters
+- Password length is 8 characters to 128
 
 ## usage
 
